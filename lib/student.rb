@@ -34,11 +34,16 @@ class Student
       WHERE name = ? 
       LIMIT 1
     SQL
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 8a613088456557adfa9474592278d61828549259
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first
   end
   
+<<<<<<< HEAD
   def self.all_students_in_grade_9
     sql = <<-SQL
       SELECT *
@@ -95,25 +100,28 @@ class Student
       self.new_from_db(row)
     end
   end 
+=======
+  def self.
+  
+  
+>>>>>>> 8a613088456557adfa9474592278d61828549259
   
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade) 
       VALUES (?, ?)
     SQL
-
     DB[:conn].execute(sql, self.name, self.grade)
   end
   
   def self.create_table
     sql = <<-SQL
-    CREATE TABLE IF NOT EXISTS students (
+    CREATE TABLE IF NOT EXISTS students(
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade TEXT
     )
     SQL
-
     DB[:conn].execute(sql)
   end
 
